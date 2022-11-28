@@ -1,10 +1,12 @@
 const mysql = require('mysql');
+const env = require('./../dbenv');
+
 
 const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'root',
-    database: 'game_service'
+    host: env.HOST,
+    user: env.DBUSER,
+    password: env.DBPASSWORD,
+    database: env.DBNAME
 })
 
 connection.connect((error) => {
@@ -15,4 +17,4 @@ connection.connect((error) => {
     }
 });
 
-module.exports = connection
+module.exports = connection;
